@@ -13,6 +13,16 @@ nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
   menuButton.setAttribute('aria-label', 'Open menu');
 }));
 
+const videoPoster = document.querySelector('.video-poster');
+const videoPlayer = document.querySelector('.video-frame iframe');
+videoPoster?.addEventListener('click', event => {
+  if (!videoPlayer) return;
+  event.preventDefault();
+  videoPlayer.src = videoPlayer.dataset.src;
+  videoPlayer.hidden = false;
+  videoPoster.hidden = true;
+});
+
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox?.querySelector('img');
 const lightboxTitle = lightbox?.querySelector('p');
